@@ -7,131 +7,147 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #4b0082, #483d8b); /* Warna gradasi ungu */
-            color: #f0f0f0;
-            padding-top: 10px; /* Space for navbar */
+            font-family: 'Georgia', serif;
+            background: #faf1e6; 
+            color: #3c3c3c;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
         }
 
+        
         .navbar {
-            background-color: #6a5acd; /* Warna ungu terang */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            background-color: #6b705c; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar-brand, .navbar-nav .nav-link {
-            color: #ffffff !important;
+        .navbar-brand {
+            font-weight: bold;
+            color: #ffe8d6; 
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #d6ccc2;
         }
 
         .navbar-nav .nav-link:hover {
-            color: #ffd700 !important; 
+            color: #ffcb69; 
         }
 
+   
         .content {
-            padding: 40px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #6b705c;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .card {
-            background-color: #483d8b; /* Warna ungu gelap */
-            border: none;
-            border-radius: 15px;
-            color: #ffffff;
+            background-color: #ffe8d6; 
+            border: 2px solid #cb997e; 
+            border-radius: 12px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card-header {
-            background-color: #6a5acd; /* Warna ungu terang */
-            font-weight: bold;
-        }
-
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-light {
-            background-color: #7b68ee;
-            color: #ffffff;
-            border: none;
+        .card-header {
+            background-color: #b7b7a4;
+            font-weight: bold;
+            text-align: center;
+            color: #3c3c3c;
+        }
+
+        .card-body {
+            color: #6b705c;
+        }
+
+        .btn-custom {
+            background-color: #cb997e; 
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .btn-light:hover {
-            background-color: #4b0082;
-            transform: scale(1.05); /* Sedikit membesar saat hover */
+        .btn-custom:hover {
+            background-color: #ddbea9;
+            transform: scale(1.05);
         }
 
         .footer {
-            background-color: #483d8b; /* Warna ungu gelap */
-            color: #ffffff;
-            text-align: center;
+            background-color: #6b705c;
+            color: #ffe8d6;
             padding: 10px 0;
-            margin-top: 20px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                    <button type="submit" class="btn btn-danger nav-link text-white border-0">Logout</button>
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-
-                        </form>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Hai, <b>Dian Ayu</b>!</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-custom">Keluar</button>
+                    </form>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <!-- Content -->
     <div class="content">
         <div class="container">
-            <h1 class="mb-4">Selamat Datang di Dashboard</h1>
-
+            <h1>Selamat Datang!</h1>
             <div class="row">
                 <!-- Card 1 -->
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-header text-center">Golongan</div>
-                        <div class="card-body">
-                            <p class="card-text">Kelola data golongan di sini.</p>
-                            <a href="{{ route('golongan.index') }}" class="btn btn-light w-100">Lihat Golongan</a>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">Kelola Golongan</div>
+                        <div class="card-body text-center">
+                            <p>Manajemen data golongan dapat dilakukan di sini.</p>
+                            <a href="{{ route('golongan.index') }}" class="btn btn-custom">Lihat Golongan</a>
                         </div>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-header text-center">User</div>
-                        <div class="card-body">
-                            <p class="card-text">Kelola data user di sini.</p>
-                            <a href="{{ route('user.index') }}" class="btn btn-light w-100">Lihat User</a>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">Kelola Pengguna</div>
+                        <div class="card-body text-center">
+                            <p>Manajemen data pengguna dapat dilakukan di sini.</p>
+                            <a href="{{ route('user.index') }}" class="btn btn-custom">Lihat Pengguna</a>
                         </div>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-header text-center">Pelanggan</div>
-                        <div class="card-body">
-                            <p class="card-text">Kelola data pelanggan di sini.</p>
-                            <a href="{{ route('pelanggan.index') }}" class="btn btn-light w-100">Lihat Pelanggan</a>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">Kelola Pelanggan</div>
+                        <div class="card-body text-center">
+                            <p>Manajemen data pelanggan dapat dilakukan di sini.</p>
+                            <a href="{{ route('pelanggan.index') }}" class="btn btn-custom">Lihat Pelanggan</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

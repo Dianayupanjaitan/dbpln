@@ -32,7 +32,6 @@ class User extends Authenticatable
    
     public $timestamps = true;
 
-    
     protected $hidden = [
         'user_password',
     ];
